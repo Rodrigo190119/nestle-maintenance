@@ -8,7 +8,7 @@ class HomeOrderEntity {
   String? requestCause;
   String? priority;
   String? customerPhone;
-  String? customerAddress;
+  String? customerAddressUrl;
 
   HomeOrderEntity({
     this.id,
@@ -20,7 +20,7 @@ class HomeOrderEntity {
     this.requestCause,
     this.priority,
     this.customerPhone,
-    this.customerAddress,
+    this.customerAddressUrl,
   });
 
   factory HomeOrderEntity.fromJson(Map<String, dynamic> json) {
@@ -34,7 +34,7 @@ class HomeOrderEntity {
       requestCause: json['request_cause'],
       priority: json['maintenance_priority'],
       customerPhone: json['report_phone'],
-      customerAddress: json['address_url'],
+      customerAddressUrl: json['address_url'],
     );
   }
 }

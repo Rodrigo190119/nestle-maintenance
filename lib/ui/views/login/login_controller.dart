@@ -40,7 +40,6 @@ class LoginController extends GetxController{
   @override
   void onInit() {
     log('onInit() - LoginController');
-    _checkIfUserHasSessionSaved();
     _initializeControllers();
     _initializeDeviceAndPackageControllers();
     super.onInit();
@@ -50,10 +49,6 @@ class LoginController extends GetxController{
   void onReady() {
     log('onReady() - LoginController');
     super.onReady();
-  }
-
-  void _checkIfUserHasSessionSaved(){
-
   }
 
   void _initializeControllers() {

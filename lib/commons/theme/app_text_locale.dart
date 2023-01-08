@@ -25,6 +25,25 @@ class AppTextLocale extends Translations {
       AppTextKey.ORDER_CARD_PRIORITY_LOW_TEXT: 'Baja',
       AppTextKey.ORDER_CARD_PRIORITY_NORMAL_TEXT: 'Normal',
       AppTextKey.ORDER_CARD_PRIORITY_HIGH_TEXT: 'Alta',
+      // ORDER ATTENTION
+      AppTextKey.ORDER_ATTENTION_PRIORITY_TEXT: 'Prioridad',
+      AppTextKey.ORDER_ATTENTION_STEP_1_TITLE: 'Información',
+      AppTextKey.ORDER_ATTENTION_STEP_2_TITLE: 'Inspección',
+      AppTextKey.ORDER_ATTENTION_STEP_3_TITLE: 'Diagnóstico',
+      AppTextKey.ORDER_ATTENTION_STEP_4_TITLE: 'Ejecución',
+      AppTextKey.ORDER_ATTENTION_STEP_5_TITLE: 'Mercadería',
+      AppTextKey.ORDER_ATTENTION_CONTINUE_BUTTON_TEXT: 'Continuar',
+      // ORDER ATTENTION STEP 1
+      AppTextKey.STEP_1_REQUEST_DATE_TEXT: 'Fecha de solicitud',
+      AppTextKey.STEP_1_ORDER_STATE_TEXT: 'Estado',
+      AppTextKey.STEP_1_ORDER_STATE_DRAFT_TEXT: 'Borrador',
+      AppTextKey.STEP_1_CUSTOMER_NAME_TEXT: 'Cliente',
+      AppTextKey.STEP_1_CUSTOMER_CELLPHONE_TEXT: 'Teléfono',
+      AppTextKey.STEP_1_CUSTOMER_ADDRESS_TEXT: 'Dirección',
+      AppTextKey.STEP_1_EQUIPMENT_CODE_TEXT: 'Placa del equipo',
+      AppTextKey.STEP_1_EQUIPMENT_NAME_TEXT: 'Nombre del equipo',
+      AppTextKey.STEP_1_REQUEST_CAUSE_TEXT: 'Tipo de problema reportado',
+      AppTextKey.STEP_1_START_ATTENTION_TEXT: 'Iniciar atención',
       // PROFILE
       AppTextKey.PROFILE_TITLE: 'Perfil',
       AppTextKey.PROFILE_OPTION_EXIT_TEXT: 'Salir'

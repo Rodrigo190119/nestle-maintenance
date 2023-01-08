@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_maintenance/commons/utils/helpers.dart';
 import 'package:flutter_maintenance/data/models/entities/home_order_entity.dart';
 import 'package:flutter_maintenance/ui/views/root/home/home_controller.dart';
 import 'package:flutter_maintenance/ui/views/root/home/widgets/home_order_card.dart';
@@ -23,18 +24,18 @@ class HomeOrderList extends StatelessWidget {
             itemBuilder: (__, i) {
               HomeOrderEntity order = _.homeOrdersList[i];
               return InkWell(
-                onTap: (){},
+                onTap: (){ _.goToAttentionOrder(entity: order); },
                 borderRadius: BorderRadius.circular(10.0),
                 child: HomeOrderCard(
                   onCellphoneTap: (){ _.openPhoneCaller(order.customerPhone!); },
-                  onLocationTap: (){ _.openGoogleMaps(order.customerAddress!); },
+                  onLocationTap: (){ _.openGoogleMaps(order.customerAddressUrl!); },
                   orderNumber: order.orderNumber,
-                  orderState: order.orderState,
-                  requestedDate: _.getFormattedDateTimeByValue(order.requestedDate),
+                  orderState: Helpers.getStateTextByValue(order.orderState).tr,
+                  requestedDate: Helpers.getFormattedDateTimeByValue(order.requestedDate),
                   customerName: order.customerName,
                   equipmentName: order.equipmentName,
                   requestCause: order.requestCause,
-                  priority: _.getPriorityTextByValue(order.priority).tr,
+                  priority: Helpers.getPriorityTextByValue(order.priority).tr,
                 ),
               );
             },

@@ -10,6 +10,7 @@ class AppColors {
   static const Color kButtonTertiary= Color.fromRGBO(255, 191, 0, 1.0);
   static const Color kLogoBackgroundColor = Color.fromRGBO(255, 191, 0, 1.0);
   static const Color kTextColor = Color.fromRGBO(147, 147, 178, 1.0);
+  static const Color kTextWhiteColor = Color.fromRGBO(247, 248, 253, 1.0);
   static const Color kErrorColor = Color.fromRGBO(237, 43, 20, 1.0);
 
   static const Color kBottomNavigation = Color.fromRGBO(255, 255, 255, 1.0);
@@ -19,4 +20,8 @@ class AppColors {
   static const Color kCardTitleBackground = Color.fromRGBO(211, 211, 211, 1.0);
   static const Color kIconGrayColor = Color.fromRGBO(147, 147, 178, 1.0);
   static const Color kDivider = Color.fromRGBO(230, 230, 241, 1.0);
+
+  static const Color kStepEnableBackground = Color.fromRGBO(10, 70, 129, 1.0);
+  static const Color kStepDisableBackground = Color.fromRGBO(147, 147, 178, 1.0);
+  static const Color kTextStepDisableBackground = Color.fromRGBO(147, 147, 178, 1.0);
 }

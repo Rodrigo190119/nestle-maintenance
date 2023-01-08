@@ -66,7 +66,7 @@ class AppTextTheme {
     return Theme.of(context)
         .textTheme
         .bodySmall!
-        .copyWith(color: color, fontSize: 12.sp, fontWeight: FontWeight.bold);
+        .copyWith(color: color, fontSize: 10.sp, fontWeight: FontWeight.bold);
   }
 
   TextStyle titleMediumNormal({Color? color = Colors.white}) {

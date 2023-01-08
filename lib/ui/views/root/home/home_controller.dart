@@ -1,5 +1,7 @@
 import 'dart:developer';
 
+import 'package:flutter_maintenance/data/models/arguments/attention_order_arguments.dart';
+import 'package:flutter_maintenance/routes/app_routes.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_maintenance/commons/theme/app_text_key.dart';
@@ -20,6 +22,7 @@ class HomeController extends GetxController {
   List<HomeOrderEntity> _homeOrdersList = [];
   List<HomeOrderEntity> _tempOrdersList = [];
 
+  final AttentionOrderArguments _attentionOrderArguments = AttentionOrderArguments();
   final int _textFormFieldsCount = 1;
   final List<bool> _active = [];
   final List<TextEditingController> _controller = [];
@@ -94,19 +97,11 @@ class HomeController extends GetxController {
     update();
   }
 
-  String getFormattedDateTimeByValue(String? stringDateTime) {
-    final f = DateFormat('dd/MM/yyyy hh:mm a');
-    DateTime? dateTime = DateTime.tryParse(stringDateTime!);
-    return f.format(dateTime ?? DateTime.now());
-  }
-
-  String getPriorityTextByValue(String? priority) {
-    Map<String, String> priorityText = {
-      AppConstants.LOW_PRIORITY: AppTextKey.ORDER_CARD_PRIORITY_LOW_TEXT,
-      AppConstants.NORMAL_PRIORITY: AppTextKey.ORDER_CARD_PRIORITY_NORMAL_TEXT,
-      AppConstants.HIGH_PRIORITY: AppTextKey.ORDER_CARD_PRIORITY_HIGH_TEXT
-    };
-    return priorityText[priority] ?? '';
+  void goToAttentionOrder({required HomeOrderEntity entity}) {
+    _attentionOrderArguments.orderId = entity.id;
+    _attentionOrderArguments.orderNumber = entity.orderNumber;
+    _attentionOrderArguments.priority = entity.priority;
+    Get.toNamed(AppRoutes.ATTENTION_ORDER_STEP_1, arguments: _attentionOrderArguments);
   }
 
   Future<void> openPhoneCaller(String phoneNumber) async {
