@@ -14,7 +14,7 @@ class AttentionStep1BottomButton extends StatelessWidget {
       builder: (_) {
         return SafeArea(
           child: Padding(
-            padding: EdgeInsets.fromLTRB(15.0.w, 5.0.h, 15.0.w, 5.0.h),
+            padding: EdgeInsets.fromLTRB(15.0.w, 5.0.h, 15.0.w, 0),
             child: Obx(
               ()=> Visibility(
                 visible: _.rxOrderRealInitDate.value.isNotEmpty,

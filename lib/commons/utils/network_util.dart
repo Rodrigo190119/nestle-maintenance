@@ -111,7 +111,7 @@ class NetworkUtil {
     });
   }
 
-  Future<dynamic> get ({String url = '', String? baseUrl, Map<String, String>? headers, String? token, Encoding? encoding, Map<String, dynamic>? queryParameters}) async{
+  Future<dynamic> get ({String url = '', String? baseUrl, Map<String, String>? headers, String? token, bool isBytes = false, Encoding? encoding, Map<String, dynamic>? queryParameters}) async{
 
     if (!await _checkInternetConnection()) throw Exception(['NOT_INTERNET_EXCEPTION']);
 
@@ -136,11 +136,10 @@ class NetworkUtil {
     return _dio.get(url,
       options: Options(
           method: 'GET',
-          responseType: ResponseType.json // or ResponseType.JSON
+          responseType: !isBytes? ResponseType.json: ResponseType.bytes // or ResponseType.JSON
       ),
       queryParameters: queryParameters,
     ).then((Response response) {
-
       logger.d("Response [${response.statusCode}]: $response");
 
       return response.data;

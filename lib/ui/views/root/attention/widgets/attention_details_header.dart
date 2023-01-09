@@ -16,7 +16,7 @@ class AttentionDetailsHeader extends StatelessWidget {
       builder: (_) {
         return SliverAppBar(
           pinned: true,
-          toolbarHeight: 70.0.h,
+          toolbarHeight: 50.0.h,
           title: Row(
             children: [
               Text(

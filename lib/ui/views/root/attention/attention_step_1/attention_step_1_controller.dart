@@ -40,15 +40,15 @@ class AttentionStep1Controller extends GetxController {
 
   @override
   void onInit() {
-    log('onInit() - AttentionStep1Controller');
     _getArguments();
+    log('onInit() - AttentionStep1Controller');
     super.onInit();
   }
 
   @override
   void onReady() {
-    log('onReady() - AttentionStep1Controller');
     _processGetAttentionOrder();
+    log('onReady() - AttentionStep1Controller');
     super.onReady();
   }
 

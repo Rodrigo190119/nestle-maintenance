@@ -39,9 +39,9 @@ class LoginController extends GetxController{
 
   @override
   void onInit() {
-    log('onInit() - LoginController');
     _initializeControllers();
     _initializeDeviceAndPackageControllers();
+    log('onInit() - LoginController');
     super.onInit();
   }
 

@@ -3,11 +3,11 @@ class AppConstants {
   static const String TOKEN_KEY_PREFS = 'token';
   static const String USER_ID_PREFS = 'user-id';
   static const String USER_NAME_PREFS = 'user-name';
-  //HOME ----------------------------------------------------------------------
+  // HOME ----------------------------------------------------------------------
   static const String LOW_PRIORITY = '0';
   static const String NORMAL_PRIORITY = '1';
   static const String HIGH_PRIORITY = '2';
-  //ORDER ATTENTION STEPS
+  // ORDER ATTENTION STEPS -----------------------------------------------------
   static const int ORDER_STEP_1 = 1;
   static const int ORDER_STEP_2 = 2;
   static const int ORDER_STEP_3 = 3;
@@ -15,4 +15,9 @@ class AppConstants {
   static const int ORDER_STEP_5 = 5;
   //ATTENTION STEP 1
   static const String STEP_1_DRAFT = 'draft';
+  // EQUIPMENT
+  static const String EQUIPMENT_TABLE = 'equipment_table';
+  static const String EQUIPMENT_TABLE_ID = 'equipment_id';
+  static const String EQUIPMENT_TABLE_NAME = 'equipment_name';
+  static const String EQUIPMENT_TABLE_CODE = 'equipment_code';
 }

@@ -19,9 +19,9 @@ class RootController extends GetxController {
 
   @override
   void onInit() {
-    log('onInit() - RootController');
     _prepareNavigationPages();
     _prepareBottomBarItems();
+    log('onInit() - RootController');
     super.onInit();
   }
 

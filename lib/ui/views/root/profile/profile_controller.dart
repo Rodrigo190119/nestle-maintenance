@@ -12,8 +12,8 @@ class ProfileController extends GetxController {
 
   @override
   void onReady() {
-    super.onReady();
     log('onReady() - ProfileController');
+    super.onReady();
   }
 
   void closeSessionAndGoToLogin() {

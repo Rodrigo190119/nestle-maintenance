@@ -1,10 +1,11 @@
 import 'dart:developer';
 
 import 'package:flutter_maintenance/data/models/arguments/attention_order_arguments.dart';
+import 'package:flutter_maintenance/data/models/response/response_equipment_model.dart';
+import 'package:flutter_maintenance/data/repository/equipment_repository.dart';
+import 'package:flutter_maintenance/database/database_repositories/equipment_database_repository.dart';
 import 'package:flutter_maintenance/routes/app_routes.dart';
-import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_maintenance/commons/theme/app_text_key.dart';
 import 'package:flutter_maintenance/commons/utils/app_constants.dart';
 import 'package:flutter_maintenance/commons/utils/error_util.dart';
 import 'package:flutter_maintenance/commons/utils/preferences_util.dart';
@@ -18,6 +19,8 @@ import 'package:url_launcher/url_launcher.dart' as url_launcher;
 
 class HomeController extends GetxController {
   final OrderRepository _orderRepository = Get.find<OrderRepository>();
+  final EquipmentRepository _equipmentRepository = Get.find<EquipmentRepository>();
+  final EquipmentDatabaseRepository _equipmentDatabaseRepository = Get.find<EquipmentDatabaseRepository>();
 
   List<HomeOrderEntity> _homeOrdersList = [];
   List<HomeOrderEntity> _tempOrdersList = [];
@@ -38,15 +41,16 @@ class HomeController extends GetxController {
 
   @override
   void onInit() {
-    log('onInit() - HomeController');
     _initializeControllers();
+    log('onInit() - HomeController');
     super.onInit();
   }
 
   @override
-  void onReady() {
-    log('onReady() - HomeController');
+  void onReady() async {
+    await _checkAndInsertDatabaseObjects();
     _processGetHomeOrders();
+    log('onReady() - HomeController');
     super.onReady();
   }
 
@@ -104,7 +108,7 @@ class HomeController extends GetxController {
     Get.toNamed(AppRoutes.ATTENTION_ORDER_STEP_1, arguments: _attentionOrderArguments);
   }
 
-  Future<void> openPhoneCaller(String phoneNumber) async {
+  void openPhoneCaller(String phoneNumber) async {
     final Uri launchUri = Uri(
       scheme: 'tel',
       path: phoneNumber,
@@ -115,7 +119,7 @@ class HomeController extends GetxController {
     } else { log('openPhoneCaller() -> can not launch!');}
   }
 
-  Future<void> openGoogleMaps(String address) async {
+  void openGoogleMaps(String address) async {
     if (address != '') {
       final Uri launchUri = Uri.parse(address);
       if(await url_launcher.canLaunchUrl(launchUri)) {
@@ -124,5 +128,22 @@ class HomeController extends GetxController {
             mode: url_launcher.LaunchMode.externalApplication);
       } else { log('openGoogleMaps() -> can not launch!');}
     }
+  }
+
+  Future<void> _checkAndInsertDatabaseObjects() async {
+    Get.dialog(const DialogLoader(), barrierDismissible: false);
+    await Future.wait([
+      _getEquipmentsListAndSaveToDatabase()
+    ]);
+    Get.back();
+  }
+
+  Future<void> _getEquipmentsListAndSaveToDatabase() async {
+    ResponseEquipment? response = await _equipmentRepository.getEquipmentsZip();
+    if(response != null) {
+      await _equipmentDatabaseRepository
+          .insertAllEquipmentsFromZip(response.equipmentEntityList!);
+    }
+    await _equipmentDatabaseRepository.getLastEquipmentIdFromDatabase();
   }
 }

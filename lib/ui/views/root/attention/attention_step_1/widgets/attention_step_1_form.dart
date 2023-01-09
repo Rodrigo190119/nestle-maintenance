@@ -15,7 +15,7 @@ class AttentionStep1Form extends StatelessWidget {
       builder: (_) {
         return SliverToBoxAdapter(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10.0.w, vertical: 10.0.h),
+            padding: EdgeInsets.symmetric(horizontal: 10.0.w, vertical: 5.0.h),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
